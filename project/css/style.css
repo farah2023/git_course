@@ -1,0 +1,239 @@
+/* 'importer une police Google Fonts dans une feuille de style CSS. Dans ce cas précis, la police importée est "Poppins" avec une variété de poids de police (100, 200, 300, 400, 500, 600) qui seront disponibles pour utilisation dans la page web. Le paramètre "display=swap" spécifie que le navigateur doit afficher le texte en utilisant la police de remplacement pendant que la police Poppins est en cours de téléchargement. Cela permet d'améliorer les performances et l'expérience utilisateur en évitant des retards d'affichage des polices. En général, les règles "@import" sont placées en haut de la feuille de style CSS pour garantir que les polices sont chargées avant que la page ne soit rendue. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; 
+   padding:0;
+   box-sizing: border-box;
+   outline: none; /* Cette ligne de code concerne la suppression de l'effet de contour pour les éléments sélectionnés avec le clavier ou la souris */
+   border: none;
+   text-decoration: none; /* Cette ligne de code concerne la suppression de la décoration de soulignement pour les liens hypertextes */
+}
+/* Cette section concerne la personnalisation de la barre de défilement pour les navigateurs WebKit (comme Google Chrome et Safari) */
+
+/*  la personnalisation de l'apparence générale de la barre de défilement pour les navigateurs WebKit en définit la largeur de la barre de défilement */
+*::-webkit-scrollbar{
+   width: 10px;
+   }
+   
+   /* la personnalisation de l'apparence de la piste (ou "track" en anglais) en définit la couleur de fond de la piste de défilement */
+   *::-webkit-scrollbar-track{
+   background-color: transparent;
+   }
+   
+   /* la personnalisation de l'apparence de la poignée (ou "thumb" en anglais) de la barre de défilement pour les navigateurs WebKit (comme Google Chrome et Safari) en définissant sa couleur */
+   *::-webkit-scrollbar-thumb{
+   background-color: #3498db;
+   }
+   
+   
+/*la sélection de deux classes CSS, "btn" et "delete-btn", qui seront stylisées de manière identique */
+.btn,
+.delete-btn{
+   width: 100%;
+   border-radius: 10px;
+   padding:10px 30px;
+   color:white;
+   display: block;
+   text-align: center;
+   cursor: pointer; /*une déclaration CSS qui spécifie que le curseur de la souris doit prendre la forme d'une main pointant lorsque l'utilisateur survole l'élément sélectionné. Cela indique que l'élément est cliquable ou interactif, ce qui peut améliorer l'expérience utilisateur en aidant à comprendre que l'élément peut être cliqué ou utilisé de manière interactive. */
+   font-size: 20px; 
+   margin-top: 10px;
+}
+ /*le style appliqué au button de validation des changements des informations*/
+.btn{
+   background-color: #3498db;
+}
+
+.btn:hover{
+   background-color: #2980b9;
+}
+
+.delete-btn{
+   background-color: #ff52bf;
+}
+ /* la couleur ou la forme du bouton peut changer lorsque l'utilisateur le survole pour indiquer que l'élément sera supprimé s'il est cliqué. Cela peut améliorer l'expérience utilisateur en aidant à comprendre l'impact de l'action de suppression avant de la confirmer. */
+.delete-btn:hover{
+   background-color: #ff52bf;
+}
+/* stylr appliqué aux messages */
+.message{
+   margin:10px 0;
+   width: 100%;
+   border-radius: 15px;
+   padding:10px;
+   text-align: center;
+   background-color: #ff52bf;
+   color:white;
+   font-size: 20px;
+}
+/*le style appliqué au formulaire*/
+.form-container{
+   min-height: 100vh; /*min-height: 100vh;*/
+   background-color: #eee;
+   display: flex; /*indique que l'élément sélectionné doit être configuré pour utiliser la propriété "flexbox", ce qui permet de contrôler la disposition de ses enfants ou de ses descendants.*/
+   align-items: center; /*centre verticalement les éléments enfants ou descendants de l'élément sélectionné. Cela signifie que les éléments enfants seront alignés au centre verticalement dans l'élément parent.*/
+   justify-content: center; /*centre horizontalement les éléments enfants ou descendants de l'élément sélectionné. Cela signifie que les éléments enfants seront alignés au centre horizontalement dans l'élément parent.*/
+   padding:20px;
+}
+
+.form-container form{
+   padding:20px;
+   background-color: white;
+   box-shadow: 0 5px 10px rgba(0,0,0,.1);
+   text-align: center;
+   width: 500px;
+   border-radius: 25px;
+}
+
+.form-container form h3{
+   margin-bottom: 10px;
+   font-size: 30px;
+   color:#333;
+   text-transform: uppercase; /* la transformation du texte en majuscules pour l'élément auquel elle est appliquée */
+}
+/*  ".form-container form .box" soit un sélecteur CSS qui cible un élément ayant la classe "box" qui est un enfant direct d'un formulaire contenu dans un élément ayant la classe "form-container */
+.form-container form .box{
+   width: 100%;
+   border-radius: 25px;
+   padding:12px 14px;
+   font-size: 18px;
+   color:#333;
+   margin:10px 0;
+   background-color: #eee;
+}
+
+.form-container form p{
+   margin-top: 15px;
+   font-size: 20px;
+   color:#333;
+}
+
+.form-container form p a{
+   color:#ff52bf;
+}
+
+/*la sélection d'un lien hypertexte ("a") lorsqu'il est survolé ("hover") et qui est contenu dans un élément "p", qui lui-même est contenu dans un élément avec les classes CSS "form-container" et "form" */
+.form-container form p a:hover{
+   text-decoration: underline;
+}
+
+.container{
+   min-height: 100vh; /*la définition de la hauteur minimale de l'élément auquel elle est appliquée à 100% de la hauteur de la fenêtre du navigateur*/
+   background-color: #eee;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+.container .profile{
+   padding:20px;
+   background-color: white;
+   box-shadow: 0 5px 10px rgba(0,0,0,.1);
+   text-align: center;
+   width: 400px;
+   border-radius: 25px;
+}
+
+.container .profile img{
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+   object-fit: cover; /*le redimensionnement d'une image ou d'une vidéo pour qu'elle remplisse complètement son conteneur tout en préservant son ratio d'aspect grâce à la propriété CSS "object-fit" avec la valeur "cover" */
+   margin-bottom: 5px;
+}
+
+/*la sélection d'un élément "h3" qui est contenu dans un élément ayant les classes CSS "container" et "profile" */
+.container .profile h3{
+   margin:5px 0;
+   font-size: 20px;
+   color:#333;
+}
+
+.container .profile p{
+   margin-top: 20px;
+   color:#333;
+   font-size: 20px;
+}
+
+/*la sélection d'un lien hypertexte ("a") qui est contenu dans un élément "p" qui lui-même est contenu dans un élément ayant les classes CSS "container" et "profile" */
+.container .profile p a{
+   color:#ff52bf;
+}
+
+/* la sélection d'un lien hypertexte ("a") lorsqu'il est survolé ("hover") et qui est contenu dans un élément "p", qui lui-même est contenu dans un élément ayant les classes CSS "container" et "profile" */
+.container .profile p a:hover{
+   text-decoration: underline;
+}
+ /*le style appliqué pour la partie de la mise à jour de profile d'utilisateur*/
+.update-profile{
+   min-height: 100vh; /*la définition de la hauteur minimale de l'élément auquel elle est appliquée à 100% de la hauteur de la fenêtre du navigateur ("vh" signifie "viewport height" en anglais) */
+   background-color: #eee;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+.update-profile form{
+   padding:20px;
+   background-color: white;
+   box-shadow:0 5px 10px rgba(0,0,0,.1);
+   text-align: center;
+   width: 700px;
+   text-align: center;
+   border-radius: 25px;
+}
+
+/*la sélection d'une image qui est contenue dans un élément "form" qui lui-même est contenu dans un élément ayant les classes CSS "update-profile" et "form" */
+.update-profile form img{
+   height: 200px;
+   width: 200p;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 5px;
+}
+
+/*la sélection d'un élément ayant la classe CSS "flex" qui est contenu dans un élément "form" qui lui-même est contenu dans un élément ayant les classes CSS "update-profile" et "form" */
+.update-profile form .flex{
+   display: flex;
+   justify-content: space-between; /* l'alignement horizontal des éléments enfants d'un conteneur grâce à la propriété CSS "justify-content" avec la valeur "space-between", qui répartit l'espace disponible de manière égale entre les éléments tout en laissant de l'espace entre eux */
+   margin-bottom: 20px;
+   gap:15px;
+}
+
+.update-profile form .flex .inputBox{
+   width: 49%;
+}
+/*le sélécteur .update-profile form .flex .inputBox span fait référence à un élément de la page web qui est probablement une balise "span" (un élément en ligne qui peut contenir du texte ou d'autres éléments) situé à l'intérieur d'une classe nommée "inputBox", qui elle-même se trouve à l'intérieur d'une classe nommée "flex", qui est à son tour située dans un formulaire avec la classe "update-profile".*/
+.update-profile form .flex .inputBox span{
+   text-align: left;
+   display: block; /* l'affichage d'un élément sous forme de bloc (au lieu de sous forme en ligne) grâce à la propriété CSS "display" avec la valeur "block" */
+   margin-top: 15px;
+   font-size: 17px;
+   color:#333;
+}
+/* la sélection d'un élément ayant la classe CSS "box" qui est contenu dans un élément ayant les classes CSS "inputBox", "flex", "form" et "update-profile" dans cet ordre */
+.update-profile form .flex .inputBox .box{
+   width: 100%;
+   border-radius: 10px;
+   background-color: #eee;
+   padding:12px 14px;
+   font-size: 17px;
+   color:#333;
+   margin-top: 10px;
+}
+
+/* Ce bloc de styles s'applique uniquement lorsque la largeur de l'écran est inférieure ou égale à 650px pour une fluidité de navigation */
+@media (max-width:650px){
+   .update-profile form .flex{
+      flex-wrap: wrap; /* le comportement de retour à la ligne des éléments enfants d'un conteneur grâce à la propriété CSS "flex-wrap" avec la valeur "wrap", qui force les éléments à passer à la ligne suivante lorsque l'espace horizontal disponible est insuffisant */
+      gap:0; /* la définition de l'espace entre les éléments enfants d'un conteneur grâce à la propriété CSS "gap" avec la valeur "0", qui supprime tout espace entre les éléments */
+   }
+   /*la sélection d'un élément ayant la classe CSS "inputBox" qui est contenu dans un élément ayant les classes CSS "flex", "form" et "update-profile" dans cet ordre */
+   .update-profile form .flex .inputBox{
+      width: 100%;
+   }
+}

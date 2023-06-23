@@ -1,0 +1,493 @@
+/* lien de Googlefont Poppins CDN pour importer les typographie */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+/*le style pour toute la page en utilisant le moèle du box*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+/* La classe "suppression" est utilisée pour mettre en évidence les éléments qui doivent être supprimés ou annulés.
+Ce style donne un fond rose vif à ces éléments avec des coins arrondis. */
+.suppression{
+background-color:#ff52bf;
+border-radius: 20px;
+}
+
+/*le style pour la barre de coté en applicant le dynamisme a l'aide de transition*/
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background: #ff52bf;
+  transition: all 0.5s ease; /*permet de créer une animation de transition fluide entre deux états différents d'un élément. Et  définir une transition pour toutes les propriétés CSS d'un élément, en spécifiant une durée (0,5 seconde dans cet exemple) et une fonction d'accélération ( "ease" dans cet exemple) qui contrôle la vitesse de la transition.*/
+}
+/*le style pour la barre de coté en applicant le dynamisme a l'aide de transition si elle est activée*/
+.sidebar.active {
+  width: 60px;
+}
+/*le style pour le logo dans la barre de coté */
+.sidebar .logo-details {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+/*le style pour le lien de logo dans la barre de coté */
+.sidebar .logo-details i {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  min-width: 60px;
+  text-align: center;
+}
+/*  Ce style appliqué au logo dans la barre de navigation  */
+.sidebar .logo-details .logo_name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+} 
+/* Ce style appliqué aux liens de la barre de navigation */
+.sidebar .nav-links {
+  margin-top: 10px;
+}
+.sidebar .nav-links li {
+  position: relative;
+  list-style: none;
+  height: 50px;
+}
+/* un sélecteur CSS qui cible les liens (balise "a") situés dans les éléments "li" de la liste de navigation ("nav-links") dans la barre latérale ("sidebar").*/
+.sidebar .nav-links li a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center; /*du conteneur. Elle peut être utilisée sur un conteneur avec la propriété "display: flex;" pour aligner les éléments de ce conteneur sur l'axe transversal.*/
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+/* ".sidebar .nav-links li a.active" cible un élément de lien (balise "a") qui a la classe "active" à l'intérieur d'un élément "li" qui a la classe "nav-links" à l'intérieur d'une barre latérale qui a la classe "sidebar". Cette règle peut être utilisée pour appliquer des styles spécifiques à un élément de lien actif dans la barre latérale. */
+.sidebar .nav-links li a.active {
+  background: #081d45;
+}
+/* ".sidebar .nav-links li a:hover" cible un élément de lien (balise "a") lorsque l'utilisateur passe la souris dessus dans un élément "li" qui a la classe "nav-links" à l'intérieur d'une barre latérale qui a la classe "sidebar". Cette règle peut être utilisée pour appliquer des styles spécifiques à un élément de lien lorsque l'utilisateur passe la souris dessus, par exemple pour changer la couleur ou la police de l'élément de lien. */
+.sidebar .nav-links li a:hover {
+  background: #081d45;
+}
+.sidebar .nav-links li i {
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+/*  ".sidebar .nav-links li a .links_name" cible un élément de lien (balise "a") qui a une classe 
+"links_name" à l'intérieur d'un élément "li" qui a une classe "nav-links" à l'intérieur d'une barre latérale qui 
+a la classe "sidebar". Cette règle peut être utilisée pour cibler les éléments de navigation dans la barre latérale et appliquer des styles spécifiques à leurs noms. */
+.sidebar .nav-links li a .links_name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap; /*empêcher le texte de se retourner à la ligne lorsque l'espace horizontal est insuffisant. Cela signifie que le texte ne sera pas coupé et que l'élément continuera à occuper la même largeur, même s'il doit déborder du conteneur parent.*/
+}
+.sidebar .nav-links .log_out {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.home-section {
+  position: relative;
+  background: #f5f5f5;
+  min-height: 100vh;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.5s ease;
+}
+  /* Réduit la largeur de la barre de navigation principale de 60px lorsque la barre latérale est active */
+.sidebar.active ~ .home-section {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.home-section nav {
+  display: flex;
+  justify-content: space-between; /* permet de définir la façon dont les éléments sont alignés le long de l'axe principal d'un conteneur avec affichage en mode flexbox.*/
+  height: 80px;
+  background: #fff;
+  align-items: center;
+  position: fixed; /*fixer un élément en haut ou en bas de la page, ou de le placer dans une position spécifique qui reste visible même lorsque l'utilisateur fait défiler la page.*/
+  width: calc(100% - 240px);
+  left: 240px;
+  z-index: 100;  /* l'élément avec "z-index: 100;" est placé au-dessus des autres éléments ayant un indice de profondeur inférieur à 100.*/
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+/* ".sidebar.active ~ .home-section nav" cible un élément "nav" qui se trouve dans une section ".home-section" qui suit immédiatement une barre 
+latérale ".sidebar" ayant la classe ".active". Le symbole tilde (~) signifie "sélectionnez tous les éléments suivants qui correspondent au sélecteur 
+suivant, mais pas nécessairement immédiatement". */
+.sidebar.active ~ .home-section nav {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+.home-section nav .sidebar-button {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+nav .sidebar-button i {
+  font-size: 35px;
+  margin-right: 10px;
+}
+.home-section nav .search-box {
+  /* utilisée pour définir la position d'un élément par rapport à sa position 
+  initiale, telle que déterminée par le flux normal du document. Lorsqu'un élément 
+  a une position relative, il peut être déplacé vers le haut, le bas, la gauche ou 
+  la droite par rapport à sa position initiale en utilisant les propriétés "top", 
+  "bottom", "left" et "right". */
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 20px;
+}
+/* ce style concerne les informations recherchées la barre de recherche */
+nav .search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none; /*supprimer l'outline, ou contour, qui est parfois ajouté par défaut par les navigateurs autour des éléments de formulaire et des liens lorsqu'ils sont sélectionnés. Cette propriété peut être utile pour améliorer l'accessibilité et l'expérience utilisateur en supprimant des éléments visuels inutiles et potentiellement gênants.*/
+  background: #f5f6fa;
+  border: 2px solid #efeef1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+}
+/* ce style concerne la barre de recheerche dans la barre de navgation */
+nav .search-box .bx-search {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #ff52bf;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%); /* applique une transformation à un élément en le déplaçant verticalement selon un pourcentage donné de sa propre hauteur. Dans ce cas, l'élément est déplacé vers le haut de 50% de sa hauteur.*/
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+.logoo{
+  height: 60px;
+  width: 80px;
+}
+/* .home-section nav .profile-details désigner qu'on style la barre de navigation de l'acceuil contennat les information sur le profil*/
+.home-section nav .profile-details {
+  display: flex;
+  align-items: center;
+  background: #f5f6fa;
+  border: 2px solid #efeef1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px; /*largeur minimale d'un élément en pixels. Cela signifie que l'élément ne sera pas réduit en dessous de cette largeur minimale, même si le contenu de l'élément est plus petit que cette valeur.*/
+  padding: 0 15px 0 2px;
+}
+nav .profile-details img {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+/* "nav .profile-details .admin_name" fait référence à l'élément qui a la classe "admin_name" qui est un descendant de l'élément qui a la classe "profile-details", qui est à son tour un descendant de l'élément "nav" sur la page.
+Plus précisément, cela signifie que toutes les règle */
+nav .profile-details .admin_name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+/* "nav .profile-details i" représente une icône dans les détails de profil d'une barre de navigation (ou "nav" en anglais). En appliquant des styles CSS à cet élément, on peut personnaliser l'apparence de l'icône en fonction des besoins de conception. */
+nav .profile-details i {
+  font-size: 25px;
+  color: #333;
+}
+
+ table {
+   margin: 10px 30px 20px 50px ; /*signifie que la marge supérieure de l'élément est de 10 pixels, la marge droite de 30 pixels, la marge inférieure de 20 pixels et la marge gauche de 50 pixels. */
+   padding:10px; 
+   width:90%
+}
+
+tr{
+  margin: 10px;
+  padding: 10px;
+}
+td{
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  font-size: large;
+}
+
+/* ".home-section .home-content" ces classes soient utilisées pour définir la section d'une page d'accueil (ou "home" en anglais) qui contient le contenu principal de la page (ou "home-content" en anglais). En appliquant des styles CSS à cet élément, on peut personnaliser l'apparence de cette section de la page en fonction des besoins de conception */
+.home-section .home-content {
+  position: relative;
+  padding-top: 104px;
+}
+/* ".home-content .overview-boxes" Les boîtes d'aperçu sont souvent utilisées pour mettre en avant les fonctionnalités ou les avantages d'un produit ou d'un service. En utilisant ce sélecteur, on peut appliquer des styles CSS spécifiques à ces boîtes d'aperçu, tels que la couleur, la taille ou la police du texte, pour les rendre plus attrayantes et plus efficaces pour les utilisateurs. */
+.home-content .overview-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  margin-bottom: 26px;
+}
+.overview-boxes .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*  La valeur calc() est une fonction qui permet de calculer des valeurs en utilisant des opérateurs mathématiques. Dans ce cas, l'expression calc(100% / 3 - 15px) indique que la largeur de l'élément sera égale à un tiers de la largeur totale du conteneur moins 15 pixels. Cette approche est souvent utilisée pour créer des mises en page responsives qui s'adaptent aux différentes tailles d'écran. */
+  width: calc(100% / 3 - 15px);
+  background: #fff;
+  padding: 15px 14px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+/*  ".overview-boxes .box-topic" fait référence à tous les éléments de classe "box-topic" qui se trouvent dans un élément de classe "overview-boxes" sur la page. */
+/* ".overview-boxes" et ".box-topic" se combinent pour cibler tous les éléments de la page qui ont la classe "box-topic" et qui sont inclus dans un élément de classe "overview-boxes". */
+.overview-boxes .box-topic {
+  font-size: 20px;
+  font-weight: 500;
+}
+/* affecter des styles spécifiques à tous les éléments de classe "number" qui se trouvent dans une boîte de contenu principal sur la page d'accueil. */
+.home-content .box .number {
+  display: inline-block;
+  font-size: 35px;
+  margin-top: -6px;
+  font-weight: 500;
+}
+.home-content .box .indicator {
+  display: flex;
+  align-items: center;
+}
+/* affecter des styles spécifiques à tous les éléments "i" qui se trouvent dans un indicateur inclus dans une boîte de contenu principal sur la page d'accueil. */
+.home-content .box .indicator i {
+  height: 20px;
+  width: 20px;
+  background: #8fdacb;
+  line-height: 20px; /*définit la distance verticale entre les lignes de texte à l'intérieur de l'élément. Si la hauteur de ligne n'est pas spécifiée, elle est calculée automatiquement en fonction de la taille de la police. */
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 5px;
+}
+/* on peut modifier l'apparence ou le comportement de cet élément en fonction des besoins de la page. Dans ce cas, il semble que cet élément représente une flèche pointant vers le bas dans une boîte (ou "box" en anglais) qui peut être utilisée 
+pour indiquer une diminution ou une baisse. */
+.box .indicator i.down {
+  background: #e87d88;
+}
+/* ".home-content .box .indicator .text" fait référence à tous les éléments de classe "text" qui se trouvent dans un élément avec la classe "indicator" qui lui-même se trouve dans un élément de classe "box" qui est contenu dans l'élément avec la classe "home-content".*/
+.home-content .box .indicator .text {
+  font-size: 12px;
+}
+/* les sélecteurs ".home-content", ".box" et ".cart" se combinent pour cibler un élément de la page qui a la classe "cart" et qui est contenu dans un élément de classe "box" qui est inclus dans l'élément ".home-content".
+Ainsi, toutes les règles CSS qui suivent s'appliquent à ces éléments de la page*/
+.home-content .box .cart {
+  display: inline-block; /*afficher un élément en tant que bloc tout en préservant la mise en page en ligne des éléments adjacents.*/
+  font-size: 32px;
+  height: 50px;
+  width: 50px;
+  background: #cce5ff;
+  line-height: 50px;
+  text-align: center;
+  color: #66b0ff;
+  border-radius: 12px;
+  margin: -15px 0 0 6px;
+}
+/* un sélecteur CSS qui cible un élément de la classe "cart" avec une classe supplémentaire "two" qui se trouve à l'intérieur d'un élément de la classe "box" qui se trouve à son tour à l'intérieur d'un élément de la classe "home-content". Ce sélecteur permet de cibler un élément spécifique dans une page web et de lui appliquer des styles CSS spécifiques. En utilisant ce sélecteur, on peut modifier l'apparence ou le comportement de cet élément en fonction des besoins de la page. */
+.home-content .box .cart.two {
+  color: #2bd47d;
+  background: #c0f2d8;
+}
+.home-content .box .cart.three {
+  color: #ffc233;
+  background: #ffe8b3;
+}
+.home-content .box .cart.four {
+  color: #e05260;
+  background: #f7d4d7;
+}
+.home-content .total-order {
+  font-size: 20px;
+  font-weight: 500;
+}
+.home-content .sales-boxes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* La boite à gauche */
+/* ".home-content .sales-boxes .recent-sales" Ce sélecteur permet de cibler un élément spécifique dans une page web et de lui appliquer des styles CSS spécifiques. 
+En utilisant ce sélecteur, on peut modifier l'apparence ou le comportement de cet élément en fonction des besoins de la page. Dans ce cas, il semble que cet élément 
+représente les ventes récentes d'un produit ou d'un service sur une page d'accueil.
+ */
+.home-content .sales-boxes .recent-sales { 
+  background: #fff;
+  margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  margin: 10px 30px 20px 50px ; 
+  padding:10px; 
+  width:100%;
+}
+/*".home-content .sales-boxes .sales-details" fait référence à tous les éléments de classe "sales-details" qui se trouvent dans l'élément avec les classes "sales-boxes" et "home-content".*/
+.home-content .sales-boxes .sales-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /*, les éléments du conteneur sont alignés avec un espace égal entre eux, créant ainsi un espacement uniforme entre les éléments.*/
+} 
+.sales-boxes .box .title {
+  font-size: 30px;
+  font-weight: 600;
+ text-align: center;
+}
+/* La boite à droite */
+/*".home-content .sales-boxes .top-sales" fait référence à l'élément de la page qui a la classe "top-sales" et qui est contenu dans un élément ayant les classes "sales-boxes" et "home-content".*/
+.home-content .sales-boxes .top-sales {
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  margin: 10px 30px 20px 50px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Media Query : Ce bloc de styles s'applique uniquement lorsque la largeur de l'écran est inférieure ou égale à 1240px pour une fluidité de navigation */
+@media (max-width: 1240px) {
+  .sidebar {
+    width: 60px;
+  }
+  .sidebar.active {
+    width: 220px;
+  }
+  .home-section {
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+  .sidebar.active ~ .home-section {
+    overflow: hidden;
+    left: 220px;
+  }
+  .home-section nav {
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+  /*".sidebar.active ~ .home-section nav" fait référence à l'élément "nav" qui se trouve dans un élément de la page ayant la classe "home-section" qui suit immédiatement (frère suivant) un élément avec la classe "sidebar active".*/
+  .sidebar.active ~ .home-section nav {
+    width: calc(100% - 220px);
+    left: 220px;
+  }
+}
+@media (max-width: 1150px) {
+  /* Si la largeur de l'écran est inférieure ou égale à 1150px */
+  .home-content .sales-boxes {
+  flex-direction: column; /*on modifie la direction de flexbox en colonne*/
+  }
+  /* " .home-content .sales-boxes .box " fait référence à tous les éléments de classe "box" qui se trouvent dans l'élément avec la classe "sales-boxes", qui lui-même se trouve dans l'élément avec la classe "home-content".
+  On définit la largeur de chaque box à 100%  */
+  .home-content .sales-boxes .box {
+  width: 100%;
+  overflow-x: scroll; /*on ajoute une barre de défilement horizontal*/
+  margin-bottom: 30px;
+  }
+  /* On supprime la marge du premier élément de la section des meilleures ventes */
+  .home-content .sales-boxes .top-sales {
+  margin: 0;
+  }
+  }
+  
+  @media (max-width: 1000px) {
+  /* Si la largeur de l'écran est inférieure ou égale à 1000px, et on ajoute une marge en bas */
+  .overview-boxes .box {
+  width: calc(100% / 2 - 15px); /*on divise la largeur des boxes en 2 */
+  margin-bottom: 15px;
+  }
+  }
+/* Le média requête suivant applique un style différent à la mise en page lorsque la largeur de l'écran est inférieure à 700px. */
+
+@media (max-width: 700px) {
+  /* Masque certains éléments de la barre de navigation lorsqu'elle est active */
+  /*nav .sidebar-button .dashboard cible le bouton du tableau de bord de la barre de navigation.
+nav .profile-details .admin_name cible le nom de l'administrateur dans la boîte de profil de la barre de navigation.
+nav .profile-details i cible les icônes de la boîte de profil de la barre de navigation.*/
+  nav .sidebar-button .dashboard,
+  nav .profile-details .admin_name,
+  nav .profile-details i {
+    display: none;
+  }
+  /* Réduit la hauteur et la largeur de la boîte de profil utilisateur pour un meilleur ajustement sur les écrans plus petits */
+  .home-section nav .profile-details {
+    height: 50px;
+    min-width: 40px;
+  }
+  /* Augmente la largeur de la boîte de détails de vente pour mieux s'adapter à l'écran plus petit */
+  /*.home-content cible la section de contenu de la page d'accueil.
+.sales-boxes cible les boîtes de vente dans la section de contenu de la page d'accueil.
+.sales-details cible les détails de vente dans les boîtes de vente.*/
+  .home-content .sales-boxes .sales-details {
+    width: 560px;
+  }
+}
+
+/* Le média requête suivant applique un style différent à la mise en page lorsque la largeur de l'écran est inférieure à 550px. */
+
+@media (max-width: 550px) {
+  /* Étend chaque boîte d'aperçu à 100% de la largeur de l'écran et ajoute une marge inférieure de 15px pour une présentation plus propre */
+  .overview-boxes .box {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  /* Masque les détails du profil utilisateur dans la barre de navigation latérale lorsqu'elle est active */
+  .sidebar.active ~ .home-section nav .profile-details {
+    display: none;
+  }
+}
+/* Le média requête suivant applique un style différent à la mise en page lorsque la largeur de l'écran est inférieure à 400px. */
+
+@media (max-width: 400px) {
+  /* Réduit la largeur de la barre latérale à 0 lorsqu'elle n'est pas active */
+  .sidebar {
+    width: 0;
+  }
+  /* Augmente la largeur de la barre latérale à 60px lorsqu'elle est active */
+  .sidebar.active {
+    width: 60px;
+  }
+  /* Étend la section principale à 100% de la largeur de l'écran lorsqu'elle n'est pas masquée par la barre latérale */
+  .home-section {
+    width: 100%;
+    left: 0;
+  }
+  /* Réduit la largeur de la section principale de 60px lorsque la barre latérale est active */
+  .sidebar.active ~ .home-section {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  /* Étend la barre de navigation principale à 100% de la largeur de l'écran lorsqu'elle n'est pas masquée par la barre latérale */
+  .home-section nav {
+    width: 100%;
+    left: 0;
+  }
+  /* Réduit la largeur de la barre de navigation principale de 60px lorsque la barre latérale est active */
+  .sidebar.active ~ .home-section nav {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}

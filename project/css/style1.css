@@ -1,0 +1,510 @@
+/*Le style appliqué à l'ensemble de la page*/
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.main{
+    height:100vh;
+    /* définit la couleur de fond d'un élément en utilisant la notation de couleur HSL (Hue, Saturation, Lightness).
+    Dans la notation HSL, la teinte (Hue) est exprimée en degrés, la saturation (Saturation) et la luminosité (Lightness) sont exprimées en pourcentage. Dans ce cas, la couleur de fond est un gris très clair avec une luminosité de 96%, une saturation de 100% (ce qui signifie qu'il n'y a pas de nuance de gris) et une teinte de 193 degrés (qui se trouve être un bleu-vert foncé). */
+    background-color: hsl(193, 100%, 96%);
+}
+.nav-bar {
+    width:100%;
+    height:60px;
+    display: flex; /* définir un conteneur flexible qui peut être utilisé pour aligner, espacer et redimensionner les éléments qu'il contient. Les éléments à l'intérieur du conteneur sont disposés le long d'un axe principal, qui peut être horizontal ou vertical, et peuvent être alignés en fonction de cet axe principal.*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background:#ff52bf;
+    border-radius: 15%;
+}
+.nav-items {
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+}
+.nav-items a {
+    color: #fff;
+    display: inline-block;
+    margin-left: 20px;
+    transition: 0.15s ease;
+}
+.nav-bar img {
+    height: 400px;
+    width: 500px;
+    display: inline-block;
+    margin-left: 20px; 
+}
+/*utilisé pour les éléments tels que les images, les boutons, les liens et autres éléments de mise en page qui doivent être disposés horizontalement mais qui nécessitent encore une certaine mise en forme en bloc.*/
+.nav-items a:hover {
+    color: rgb(211,211,211);
+} /*style appliqué au lien de button pour s'inscrire*/
+a.signUpBtn {
+    background:#343966;
+    border-radius: 20px;
+    padding: 5px 20px;
+    transition: 0.15s ease; /*des styles spécifiques pour les liens ancrés avec la classe "signUpBtn" lorsqu'ils sont survolés, ce qui peut aider à améliorer l'expérience utilisateur et à rendre les boutons d'action plus attractifs et plus engageants.*/
+} 
+/*créer des styles spécifiques pour les liens ancrés lorsqu'ils sont survolés, ce qui peut aider à améliorer l'expérience utilisateur et à rendre la navigation plus facile et plus intuitive.*/
+a.signUpBtn:hover {
+    color: #fff;
+    background: #f2ecee;
+}
+ a{
+ text-decoration: none; /*définir la décoration du texte, comme souligné, barré, etc. La valeur "none" est utilisée pour supprimer toutes les décorations de texte.*/
+ font-size: larger; /*définir la taille de police utilisée pour un élément. La valeur "larger" est utilisée pour définir la taille de police de l'élément à la taille de police de son parent multipliée par 1,2.*/
+ /* Les différentes polices sont énumérées en les séparant par des virgules. Dans cet exemple, si la police "Verdana" n'est pas disponible sur l'ordinateur de l'utilisateur, le navigateur tentera de charger la police "Geneva". Si cette dernière n'est pas disponible, il tentera de charger la police "Tahoma", et ainsi de suite. Si aucune de ces polices n'est disponible, le navigateur utilisera la police sans-serif par défaut. */
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.background img{
+    width:100%;
+    height:100vh;
+}
+@media only screen and (max-width: 810px){
+    /* Définit les styles pour les écrans avec une largeur maximale de 810px */
+    .main{
+    /* Définit la hauteur de la classe "main" à 110% de la hauteur de la vue */
+    height: 110vh;
+    /* Définit la largeur de la classe "main" à 100% */
+    width:100%;
+    /* Définit la couleur de fond à un ton de gris clair */
+    background-color: hsl(193, 100%, 96%);
+    }
+    }
+.content{
+    position:relative;
+    width:100%;
+    padding: 2% 5% 2% 5%;
+    height:100vh;
+    display: flex;
+    flex-direction: column; /* les éléments flex sont répartis sur une colonne au lieu d'une ligne, ce qui peut être utile pour organiser des éléments verticalement, comme des listes, des menus, des formulaires ou d'autres éléments d'interface utilisateur.*/
+    justify-content: space-between; /*les éléments sont répartis sur la ligne horizontale avec un espacement égal entre eux, en laissant un espace vide entre les éléments extrêmes et les bords du conteneur. Cela peut être utile pour aligner des boutons, des icônes ou d'autres éléments d'interface utilisateur.*/
+}
+.position{
+    position: absolute;
+}
+.header{
+    display:flex;
+    justify-content: space-between;
+}
+    /* Définit les styles pour les écrans avec une largeur maximale de 428px */
+@media only screen and (max-width: 428px){
+    .header{
+        margin-top: 30px;
+    }
+    .main{
+        height:100vh;
+    }
+}
+.header img{
+    height:40px;
+}
+@media only screen and (max-width: 428px){
+    .header img{
+        height:25px;
+        width:150px;
+    }
+}
+.header button{
+    border-radius: 40px;
+    font-size:1rem;
+    padding:10px 50px 10px 50px;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: white;
+   /* Ajoute une ombre à la boîte (box-shadow) pour les navigateurs basés sur WebKit 
+    l'ombre a une distance horizontale de 5 pixels (5px), une distance verticale de 0 pixel (0px), un flou de 40 pixels (40px), une étendue de -15 pixels (-15px) et une couleur de gris (rgba(120,120,120,1)).*/
+    -webkit-box-shadow: 5px 0px 40px -15px rgba(120,120,120,1);
+/* Ajoute une ombre à la boîte (box-shadow) pour les navigateurs basés sur Mozilla */
+   -moz-box-shadow: 5px 0px 40px -15px rgba(120,120,120,1);
+    box-shadow: 5px 0px 40px -15px rgba(120,120,120,1); /*on peut ajouter une ombre à droite d'un élément, avec un flou de 40px et une couleur de gris clair (rgba(120,120,120,1)).*/
+    cursor: pointer; /* modifier l'apparence du curseur de la souris lorsque l'utilisateur survole l'élément. En utilisant cette propriété, on peut modifier le curseur de la souris pour qu'il affiche une main pointant vers l'élément, indiquant ainsi qu'il est cliquable.*/
+    transition: transform 0.2s;
+}
+.header button:hover{
+    transform: scale(1.1); /*modifier l'échelle d'un élément lorsqu'il est survolé par la souris*/
+}
+@media only screen and (max-width: 428px){
+    /* ce style appliqué au bouton qui se trouve dans la première section de la page d'acceuil */
+    .header button{
+        font-size: 0.8rem; /*"font-size" peut être utilisée pour définir la taille de police d'un élément à 0,8 fois la taille de police de son parent,*/
+        padding:8px 30px 8px 30px;
+    }
+}
+h2, h3{
+    font-size: small;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    font-size: small;
+    font-family: 'Open Sans', sans-serif;
+}
+.side1{
+    width:50%;
+}
+.side1 button {
+    font-size:1rem;
+    padding:15px 0 15px 0;
+    border-radius: 30px;
+    border-style: none;
+    background-color: hsl(322, 100%, 66%);
+    padding:15px ;
+    /* Ces deux lignes de code CSS définissent une ombre portée pour un élément en utilisant les préfixes propriétaires "-webkit-" et "-moz-" pour assurer la compatibilité avec les navigateurs qui prennent encore en charge ces préfixes */
+    -webkit-box-shadow: 5px 0px 40px -15px rgba(120,120,120,1);
+    -moz-box-shadow: 5px 0px 40px -15px rgba(120,120,120,1);
+    box-shadow: 5px 0px 40px -15px rgba(120,120,120,1);
+    cursor: pointer;
+    font-weight: 50px ;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.2s;
+}
+.side1 button a{
+    color:white;
+    text-decoration: none; font-weight: 50px ;
+}
+.side1 button:hover{
+    transform: scale(1.1);
+}
+.side2{
+    width:50%;
+}
+.icon{
+    width:90px;
+    height: 90px;
+}
+/*style appliqué aux éléments de la section de pourqoi nous choisir*/
+.box{
+    display: flex;
+    align-items: center;
+    margin-left: -3%; /*définit la marge gauche d'un élément en utilisant la propriété margin-left et la valeur -3%. Cette propriété est utilisée pour ajuster l'espacement entre l'élément et ses voisins.*/
+    justify-content: space-between;
+}
+.box .why{
+    margin-left: 40px;
+}
+.why{
+    height: 95%;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px;
+}
+.why p{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.logo{
+    height: 70%;
+    width: 50%; 
+}
+ img{  
+    width:50%;
+    height: 55%;
+    border-radius: 50%;
+    z-index: calc(1,2); /* définit la profondeur d'empilement des éléments d'une page web. Plus la valeur de "z-index" est élevée, plus l'élément sera placé en avant-plan.*/
+}
+#img1 {
+    position: absolute;
+    width: 35%;
+    height: 45%;
+    margin-top: -5%;
+    margin-left: 80px;
+  } 
+  #img2 {
+    position: relative;
+    margin-top: 20% ;
+    margin-right:30% ;
+    width: 70%;
+    height: 70%;
+    z-index: auto; /* Définit la valeur de l'index de la boîte (z-index) sur la valeur par défaut (auto) */
+  }
+/* Ce style appliqué aux cartes horizontales décrivant le pourqoui choisir notre palteforme */
+.flex-card{
+    display:flex;
+    gap:50px;
+    margin-top:50px;
+    align-items: center;
+    height:100%;
+}
+@media only screen and (max-width: 810px){
+    .flex-card{
+        display: flex;
+        flex-direction: column;
+    }
+    .side1{
+        width:100%;
+    }   
+    .side2{
+        width:100%;     
+    }
+}
+.flex-card .side1{
+    margin-top: -100px;
+}
+.flex-card h2{
+    font-size:3.5rem;
+}
+@media only screen and (max-width: 1440px){
+    .flex-card h2{
+        font-size:2.5rem;
+    }
+}
+.flex-card p{
+    font-size:1.4rem;
+    line-height: 2; /*La hauteur de ligne détermine l'espacement vertical entre les lignes de texte à l'intérieur de l'élément. Une valeur plus élevée entraîne un espacement plus grand, tandis qu'une valeur plus faible entraîne un espacement plus petit.*/
+}
+.text{
+    display: flex;
+    /* Définit la direction du flux principal des éléments (flex-direction) comme colonne */
+    flex-direction: column;
+    gap:30px;
+}
+@media only screen and (max-width: 810px){
+    .side1{
+        display: flex;
+        text-align: center;
+    }
+    .side1 button {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 428px){
+    .side1 h2{
+        font-size:2rem;
+    }
+    .side1 p{
+        font-size:1rem;
+    }
+}
+.card1{
+    margin: 2% 5% 2% 5%;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(130,130,130,1);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(130,130,130,1); /*propriété est spécifique à Mozilla Firefox et ne sera pas prise en charge par tous les navigateurs.
+    0px pour l'offset horizontal de l'ombre
+    0px pour l'offset vertical de l'ombre
+    20px pour le flou de l'ombre
+    -10px pour l'étalement de l'ombre
+    rgba(130,130,130,1) pour la couleur de l'ombre (dans ce cas, un gris foncé)*/
+    box-shadow: 0px 0px 20px -10px rgba(130,130,130,1);
+}
+/*style appliqué sur les éléments de la section avis des utilaisateurs en tenant compte du design responsive de notre page web*/
+.item1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.flap1{
+    width:50%;
+}
+/* Cible les éléments h2 à l'intérieur de la classe "flap1" */
+.flap1 h2{
+    font-size:2rem;
+}
+.flap1 p{
+    font-size: 1.2rem; /*la taille de police spécifiée en pixels (px) peut être difficile à manipuler car elle est fixe et ne s'adapte pas aux tailles d'écran ou aux préférences de l'utilisateur. Utiliser des unités relatives comme rem, em ou % peut offrir plus de flexibilité et permettre à la taille de police de s'ajuster dynamiquement en fonction des besoins.*/
+    line-height: 2;
+    margin-top:20px;
+    /* La valeur RGB utilisée ici est composée de trois nombres compris entre 0 et 255, qui représentent respectivement la quantité de rouge, de vert et de bleu utilisée pour créer la couleur. Dans ce cas, les valeurs de 140, 140 et 140 représentent un gris foncé. */
+    color:rgb(140, 140, 140);
+}
+.flap2{
+    width:50%;
+    text-align: center;
+}
+.flap2 img{
+    width:50%;
+    border-radius: 50%;
+}
+.reverse{ 
+    /*  définit la direction du flux principal des éléments (flex-direction) comme "row-reverse" pour la classe "reverse". 
+    La propriété "flex-direction" permet de spécifier la direction dans laquelle les éléments d'un conteneur flexbox sont disposés. */
+    flex-direction: row-reverse; /*La valeur row-reverse spécifie que l'axe principal est orienté horizontalement, de droite à gauche. Les éléments enfants sont donc disposés en ligne horizontale, de droite à gauche, et peuvent être empilés verticalement si l'espace horizontal est insuffisant.*/
+}
+@media only screen and (max-width: 810px){
+    .card1{
+        margin-top:50px;
+    }
+    .flap2 img{
+        width:80%;
+    }
+    .item1{
+        display: flex;
+        gap:30px;
+    }
+}
+@media only screen and (max-width: 428px){
+    .item1{
+        display: flex;
+        flex-direction: column-reverse; /*La valeur row-reverse spécifie que l'axe principal est orienté horizontalement, de droite à gauche. Les éléments enfants sont donc disposés en ligne horizontale, de droite à gauche, et peuvent être empilés verticalement si l'espace horizontal est insuffisant.*/
+        padding:10% 5% 10% 5%;
+        text-align: center;
+    }
+    .flap1{
+        width:100%;
+    }
+    .flap2{
+        width:100%;
+    }
+}
+/*  la classe "footer-area" peut être utilisée pour cibler et personnaliser la zone de pied de page de votre page HTML */
+.footer-area{
+    padding:10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+}
+/*  la classe "footer-card" pour appliquer des styles CSS spécifiques à cette carte du pied de page de votre page HTML */
+.footer-card{
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    align-items: center;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(130,130,130,1);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(130,130,130,1);
+    box-shadow: 0px 0px 20px -10px rgba(130,130,130,1);
+    background-color: white;
+}
+/* le bouton à l'intérieur de la classe "footer-area" pour appliquer des styles CSS spécifiques à ce bouton dans la zone de pied de page de votre page HTML.  */
+.footer-area .button{
+    text-align: center;
+}
+h3{
+    font-size:2rem;
+    margin-top: 45px;
+    
+}
+.titre{
+    text-align: center;
+}
+.things{
+    padding:30px 50px 30px 50px;
+}
+@media only screen and (max-width: 810px){
+    .things{
+        padding: 5%;
+    }
+    /* la classe "footer-card" pour appliquer des styles CSS spécifiques à cette carte du pied de page de votre page HTML. */
+    .footer-card{
+        width:100%;
+    }
+    h3{
+        font-size:1.5rem;
+    }}
+@media only screen and (max-width: 428px){
+    h3{
+        font-size: 1rem;
+    }
+footer{
+    background-color:#343966;
+    color:#343966;
+    /* le décalage de -180px est appliqué à l'élément ciblé pour créer un effet de superposition, où cet élément est placé au-dessus d'un autre élément sur la page HTML */
+    margin-top: -180px;
+    padding-bottom: 50px;
+}}
+@media only screen and (max-width: 1440px){
+    footer{
+        margin-top: -150px;
+    }
+}
+@media only screen and (max-width: 810px){
+    footer{
+        margin-top: -130px;
+    }
+}
+/*définit un point de rupture pour les écrans de petite taille, tels que les smartphones ou les tablettes en mode portrait. Lorsque l'écran a une largeur maximale de 428 pixels, la règle suivante s'applique :
+cette règle modifie la marge supérieure du pied de page "footer" en la réduisant de 90 pixels. Cela peut être utile pour optimiser l'espace sur un petit écran et permettre à l'utilisateur de voir plus de contenu sans avoir à faire défiler la page.*/
+@media only screen and (max-width: 428px){
+    footer{
+        margin-top: -90px;
+    }
+}
+/* la classe .main-footer pour sélectionner un élément HTML spécifique et lui appliquer des styles CSS.*/
+.main-footer{
+    padding: 2% 5% 2% 5%;
+    display: flex;
+    flex-direction: column;
+    gap:50px; /*définit l'espacement entre les éléments enfants d'un conteneur en utilisant la propriété gap et la valeur 50px.*/
+    padding-top:100px;
+    background-color:#343966 ;
+}
+.stuff{
+    color: #f2ecee;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.location{
+    display:flex;
+    gap:10px;
+}
+.location img{
+    width:40px;
+    border-radius: 50%;
+}
+.part1{
+    display: flex;
+    flex-direction: column;
+    gap:30px; 
+   
+}
+@media only screen and (max-width: 810px){
+    /* stuff pour designer les elements groupes principalement dans le footer */
+    .stuff{
+        display: flex;
+        flex-direction: column;
+        gap:70px; /*elle crée un espace vertical de 70 pixels entre les éléments situés l'un au-dessus de l'autre*/
+    }
+    .location img{
+        width:20px;
+        height:22px;
+    }
+    .icons{
+        justify-content: center;
+    }
+}
+.icons{
+    font-size:1.5rem;
+    display: flex;
+    flex-direction: row; /* définit la direction de l'axe principal d'un conteneur en utilisant la propriété flex-direction et la valeur row.*/
+}
+.fa-facebook{
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+/* L'effet de zoom est créé en appliquant une transformation d'échelle de 1,1 à l'icône lorsque l'utilisateur survole avec la souris. Cela agrandit l'icône et la rend plus visible pour l'utilisateur, ce qui peut aider à encourager les clics sur l'icône et à stimuler l'engagement sur les pages de médias sociaux. */
+.fa-facebook:hover{
+    transform: scale(1.1);
+}
+.fa-twitter{
+    /* la transition est appliquée à la propriété transform de l'élément, ce qui signifie que tout changement dans la transformation de l'élément, telle que l'effet de zoom de l'exemple précédent, sera effectué en douceur sur une période de 0,2 seconde. */
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.fa-twitter:hover{
+    transform: scale(1.1);
+}
+.fa-instagram{
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.fa-instagram:hover{
+    transform: scale(1.1);
+}
+.copyright{
+    text-align: center;
+    margin-top: 100px;
+    color: #f2ecee;
+}
+/* ce style pour les droits réservés pour modifier la couleur de la police de lien pour aider à distinguer les liens des autres contenus texte de la page HTML */
+.copyright a{
+    color:skyblue;
+}

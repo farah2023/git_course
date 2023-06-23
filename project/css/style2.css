@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+/* Cette règle CSS supprime les puces de liste pour tous les éléments li */
+li {
+	list-style: none;
+}
+/* Cette règle CSS cache la barre de défilement horizontale de la page web */
+html {
+	overflow-x: hidden;
+}
+/* Cette règle CSS définit trois variables personnalisées pour les couleurs en mode sombre */
+body.dark {
+	--light: #0C0C1E;  /* Couleur claire pour les éléments de texte */
+	--grey: #060714; /* Couleur grise pour les éléments de fond */
+	--dark: #FBFBFB; /* Couleur foncée pour les éléments d'accentuation */
+}
+
+body {
+	background:  #eee;
+	overflow-x: hidden;
+}
+
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 100%;
+	background: #F9F9F9;;
+	z-index: 2000;
+	font-family: 'Lato', sans-serif;
+	transition: .3s ease;
+	/* Cette règle de style est utilisée pour masquer la barre de défilement horizontale de l'élément ciblé (#content par exemple) et désactiver la largeur de la barre de défilement dans les navigateurs qui la supportent. */
+	overflow-x: hidden;
+	scrollbar-width: none;
+}
+/* Cette règle CSS cible l'élément avec l'ID "sidebar" et masque la barre de défilement de la zone de défilement uniquement pour les navigateurs WebKit, tels que Google Chrome et Safari */
+#sidebar::--webkit-scrollbar {
+	display: none;
+}
+/* Cette règle CSS cible l'élément avec l'ID "sidebar" qui possède la classe "hide" pour le cacher */
+#sidebar.hide {
+	width: 60px;
+}
+#sidebar .brand {
+	font-size: 24px;
+	font-weight: 700;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	color:#3C91E6;
+	/* Cette propriété CSS est utilisée pour définir un élément en position "sticky", ce qui signifie qu'il est positionné en fonction de l'emplacement de défilement de la fenêtre de l'utilisateur. Cela permet à l'élément de rester visible même lorsque l'utilisateur fait défiler la page, ce qui peut être utile pour des éléments de navigation ou des en-têtes de page. */
+	position: sticky;
+	top: 0;
+	left: 0;
+	background: #F9F9F9;;
+	z-index: 500;
+	padding-bottom: 20px;
+	box-sizing: content-box;
+}
+/* #sidebar .brand .bx" "bx" qui se trouve à l'intérieur d'un élément avec la classe "brand" qui lui-même se trouve à l'intérieur d'un élément avec l'identifiant "sidebar" */
+#sidebar .brand .bx {
+	min-width: 60px;
+	display: flex;
+	justify-content: center;
+}
+#sidebar .side-menu {
+	width: 100%;
+	margin-top: 48px;
+}
+#sidebar .side-menu li {
+	height: 48px;
+	background: transparent;
+	margin-left: 6px;
+	border-radius: 48px 0 0 48px;
+	padding: 4px;
+}
+#sidebar .side-menu li.active {
+	background:  #eee;
+	position: relative;
+}
+#sidebar .side-menu li.active::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0  #eee;
+	z-index: -1;
+}
+/* Ce sélecteur cible l'élément <li> ayant la classe "active" dans la liste ayant la classe "side-menu" de la barre latérale, et ajoute un pseudo-élément ::after. Cette règle de style est utilisée pour ajouter un élément décoratif à l'élément de menu actif. */
+#sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0  #eee;
+	z-index: -1;
+}
+#sidebar .side-menu li a {
+	width: 100%;
+	height: 100%;
+	background: #F9F9F9;;
+	display: flex;
+	align-items: center;
+	border-radius: 48px;
+	font-size: 16px;
+	color: #342E37;
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+/* Ce sélecteur cible les éléments <a> situés dans les éléments <li> de la liste ayant la classe "top", qui sont eux-mêmes situés dans l'élément ayant la classe "side-menu" de la barre latérale, et qui ont la classe "active". Cette règle de style est utilisée pour appliquer des propriétés de style spécifiques à l'élément de menu actif. */
+#sidebar .side-menu.top li.active a {
+	color: #ff52bf;
+}
+#sidebar.hide .side-menu li a {
+	width: calc(48px - (4px * 2));
+	transition: width .3s ease;
+}
+/* Ce sélecteur cible les éléments <a> ayant la classe "logout", qui sont situés dans les éléments <li> de la liste ayant la classe "side-menu" de la barre latérale. Cette règle de style est utilisée pour appliquer des propriétés de style spécifiques à l'élément de menu "logout", par exemple pour afficher un bouton de déconnexion. */
+#sidebar .side-menu li a.logout {
+	color: #DB504A;
+
+/* Ce sélecteur cible les éléments <a> situés dans les éléments <li> de la liste ayant la classe "top", qui sont eux-mêmes situés dans l'élément ayant la classe "side-menu" de la barre latérale. Cette règle de style est utilisée pour appliquer des propriétés de style aux éléments de menu lorsqu'ils sont survolés avec la souris. */}
+#sidebar .side-menu.top li a:hover {
+	color:#3C91E6;
+}
+/* Ce sélecteur cible les éléments <i> avec la classe "bx" qui sont enfants des éléments <a> situés dans les éléments <li> de la liste ayant la classe "side-menu", qui sont eux-mêmes situés dans l'élément ayant l'ID "sidebar". Cette règle de style est utilisée pour appliquer des propriétés de style aux icônes de la barre latérale, qui peuvent être des symboles ou des images utilisées pour représenter des liens ou des actions. */
+#sidebar .side-menu li a .bx {
+	/* Cette propriété CSS est utilisée pour définir la largeur minimale d'un élément. Dans ce cas, la largeur minimale est calculée à partir d'une valeur de base de 60 pixels, à laquelle est soustraite la somme des marges horizontales (4 pixels à gauche et à droite, multipliées par 2) et des rembourrages horizontaux (6 pixels à gauche et à droite, multipliées par 2), soit un total de 16 pixels. Cette propriété peut être utilisée pour garantir que les éléments ont une largeur minimale suffisante pour afficher leur contenu, même si celui-ci est très petit. */
+	min-width: calc(60px  - ((4px + 6px) * 2));
+	display: flex;
+	justify-content: center;
+}
+/* le selecteur pour le contenu de la page */
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	left: 280px;
+	transition: .3s ease;
+}
+/* Ce sélecteur cible l'élément ayant l'ID "content", qui suit immédiatement un élément avec l'ID "sidebar" qui a également la classe "hide". Cette règle de style est utilisée pour modifier la largeur et la position de l'élément ayant l'ID "content" lorsque l'élément ayant l'ID "sidebar" est masqué. */
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+/* Ce sélecteur cible l'élément <nav> situé dans l'élément ayant l'ID "content". Cette règle de style est utilisée pour définir les propriétés de style pour la navigation principale du site, qui peut contenir des liens vers d'autres pages ou sections du site. */
+#content nav {
+	height: 56px;
+	background: #F9F9F9;;
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	font-family:'Lato', sans-serif;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+/* Ce sélecteur cible l'élément <nav> situé dans l'élément ayant l'ID "content", en ajoutant un pseudo-élément "::before". Cette règle de style est utilisée pour ajouter un contenu avant l'élément <nav>, ce qui peut être utilisé pour ajouter des éléments de décoration ou d'identification à l'élément. */
+#content nav::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	bottom: -40px;
+	left: 0;
+	border-radius: 50%;
+	/* Cette propriété CSS est utilisée pour ajouter une ombre portée à un élément. Dans ce cas, l'ombre est positionnée en haut et à gauche de l'élément, avec un décalage de -20 pixels pour les deux axes, et une couleur de remplissage de #F9F9F9. Cette propriété peut être utilisée pour ajouter de la profondeur ou de la dimension à un élément, en le faisant ressortir de l'arrière-plan. */
+	box-shadow: -20px -20px 0 #F9F9F9;
+}
+#content nav a {
+	color: #342E37;
+}
+/* Ce sélecteur cible un élément avec les classes "bx" et "bx-menu", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Ces classes sont utilisées pour afficher une icône de menu sur la page, qui peut être utilisée pour ouvrir et fermer une navigation mobile. */
+#content nav .bx.bx-menu {
+	cursor: pointer;
+	color: #342E37;
+}
+#content nav .nav-link {
+	font-size: 16px;
+	transition: .3s ease;
+}
+/* Ce sélecteur cible un élément avec la classe "nav-link" lorsqu'il est survolé par le curseur de la souris, qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de style pour le comportement de survol de la souris, qui peuvent être utilisées pour fournir des indications visuelles à l'utilisateur sur les éléments interactifs du site. */
+#content nav .nav-link:hover {
+	color:#3C91E6;
+}
+#content nav form {
+	max-width: 400px;
+	width: 100%;
+	margin-right: auto;
+}
+#content nav form .form-input {
+	display: flex;
+	align-items: center;
+	height: 36px;
+}
+/* Ce sélecteur cible un élément <input> situé dans un élément avec la classe "form-input", qui lui-même est situé dans un élément <form>, qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de style pour les zones de texte et les champs de formulaire, qui peuvent être utilisés pour collecter des informations auprès de l'utilisateur. */
+#content nav form .form-input input {
+	flex-grow: 1;
+	padding: 0 16px;
+	height: 100%;
+	border: none;
+	background:  #eee;
+	border-radius: 36px 0 0 36px;
+	outline: none;
+	width: 100%;
+	color: #342E37;
+}
+/* Ce sélecteur cible un élément <button> situé dans un élément avec la classe "form-input", qui lui-même est situé dans un élément <form>, qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de style pour les boutons de formulaire, qui peuvent être utilisés pour soumettre ou réinitialiser un formulaire. */
+#content nav form .form-input button {
+	width: 36px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:#3C91E6;
+	color: #F9F9F9;;
+	font-size: 18px;
+	border: none;
+	/* Cette propriété est utilisée pour supprimer le contour qui apparaît autour d'un élément lorsqu'il est sélectionné, ce qui peut améliorer l'esthétique et la lisibilité de la page. Cependant, il est important de noter que la suppression de ce contour peut rendre la page moins accessible pour les utilisateurs qui naviguent au clavier, car cela peut rendre plus difficile de déterminer quel élément est actuellement sélectionné.*/
+	outline: none;
+	border-radius: 0 36px 36px 0;
+	cursor: pointer;
+}
+/* Ce sélecteur cible un élément avec la classe "notification", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de style pour les notifications, qui peuvent être utilisées pour alerter l'utilisateur sur des événements importants ou des mises à jour. */
+#content nav .notification {
+	font-size: 20px;
+	position: relative;
+}
+/* Ce sélecteur cible un élément avec la classe "num", qui est situé dans un élément avec la classe "notification", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de style pour le nombre de notifications, qui peut être utilisé pour indiquer à l'utilisateur combien de notifications non lues sont actuellement présentes sur le site. */
+#content nav .notification .num {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #F9F9F9;;
+	background: #DB504A;
+	color: #F9F9F9;;
+	font-weight: 700;
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Ce sélecteur cible l'élément <img> situé dans un élément avec la classe "profile", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette règle de style définit les propriétés de taille, de remplissage d'objet (object-fit), et de bordure en rayon (border-radius) pour l'image. Ces propriétés sont souvent utilisées pour créer des images de profil ou des icônes qui doivent être dimensionnées et stylisées de manière cohérente. */
+#content nav .profile img {
+	width: 36px;
+	height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+/* Ce sélecteur cible un élément avec la classe "switch-mode", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Cette classe est souvent utilisée pour créer des éléments interactifs, tels que des boutons ou des commutateurs, qui ont besoin de styles spécifiques pour être facilement identifiables et utilisables par les utilisateurs. */
+#content nav .switch-mode {
+	display: block;
+	min-width: 50px;
+	height: 25px;
+	border-radius: 25px;
+	background:  #eee;
+	cursor: pointer;
+	position: relative;
+}
+/* Ce sélecteur cible l'élément pseudo-élément ::before situé dans un élément avec la classe "switch-mode", qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". Les propriétés "content", "position", "top", "left" et "bottom" sont définies pour créer un élément pseudo-élément qui est positionné de manière absolue par rapport à son conteneur parent et qui remplit l'espace entre les marges supérieure et inférieure de l'élément parent. */
+#content nav .switch-mode::before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width: calc(25px - 4px);
+	background:#3C91E6;
+	border-radius: 50%;
+	transition: all .3s ease;
+}
+/* Ce sélecteur cible l'élément pseudo-élément ::before situé dans un élément avec la classe "switch-mode", qui est immédiatement précédé par l'élément <input> avec l'ID "switch-mode" qui est coché (:checked), qui est situé dans un élément <nav> qui lui-même est situé dans l'élément ayant l'ID "content". La propriété "left" est définie pour positionner l'élément pseudo-élément par rapport à son conteneur parent. */
+#content nav #switch-mode:checked + .switch-mode::before {
+	left: calc(100% - (25px - 4px) - 2px);
+}
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: 'Poppins', sans-serif ;
+	/*calculée en soustrayant 56 pixels (px) de la hauteur de la fenêtre visible (viewport height, ou "vh").*/
+	max-height: calc(100vh - 56px);
+	/*"auto" permet d'afficher une barre de défilement verticale lorsque le contenu de l'élément dépasse la hauteur maximale*/
+	overflow-y: auto;
+}
+/* Ce sélecteur cible un élément avec la classe "head-title", qui est situé dans l'élément <main> de la page, qui est à son tour situé dans l'élément ayant l'ID "content". Cette classe est souvent utilisée pour regrouper des éléments tels que des titres, des sous-titres ou des informations de page, afin de les styliser ensemble. */
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+/* un sélecteur qui cible un élément de titre <h1> situé dans un élément avec la classe "left", qui est situé dans un élément avec la classe "head-title", qui est situé dans l'élément <main> de la page, qui est à son tour situé dans l'élément ayant l'ID "content".*/
+#content main .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #342E37;
+}
+#content main .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+#content main .head-title .left .breadcrumb li {
+	color: #342E37;
+} /*un sélecteur qui cible les liens (balise <a>) situés dans les éléments <li> qui se trouvent dans une liste de navigation (breadcrumb), qui est elle-même située dans un élément avec la classe "left", qui est situé dans un élément avec la classe "head-title", qui est situé dans l'élément <main> de la page, qui est à son tour situé dans l'élément ayant l'ID "content"*/
+#content main .head-title .left .breadcrumb li a {
+	color:  #AAAAAA;
+	pointer-events: none;
+}
+/*un sélecteur similaire à celui précédemment décrit, mais avec une différence : il cible uniquement les liens qui ont la classe "active" en plus des éléments précédents*/
+#content main .head-title .left .breadcrumb li a.active {
+	color: #ff52bf;
+	pointer-events: unset;
+}
+/* un sélecteur qui cible un élément avec la classe "btn-download" , qui est situé dans l'élément <main> de la page */
+ .btn-download {
+	height: 36px;
+	padding: 0 16px;
+	border-radius: 36px;
+	background: #ff52bf;
+	color: #F9F9F9;;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 10px;
+	font-weight: 500;
+}
+/* Applique un affichage en grille à la boîte d'information */
+#content main .box-info {
+	display: grid;
+	/* Crée des colonnes qui s'adaptent automatiquement à la taille de l'écran avec une largeur minimale de 240 pixels et une largeur maximale de 1 fraction de l'espace disponible */
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	/* Ajoute un espace de 24 pixels entre chaque élément de la grille */
+	grid-gap: 24px;
+	/* Ajoute une marge en haut de 36 pixels */
+	margin-top: 36px;
+}
+/* Ajoute un remplissage, un arrière-plan et un rayon de bordure à chaque élément de liste dans la boîte d'information */
+#content main .box-info li {
+	padding: 24px;
+	background: #F9F9F9;;
+	border-radius: 20px;
+	/* Affiche les éléments de liste en ligne avec les autres éléments de la grille */
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+}
+/* Donne une largeur et une hauteur fixes, un rayon de bordure et un style de police à l'icône dans chaque élément de liste */
+#content main .box-info li .bx {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	font-size: 36px;
+	/* Centre l'icône dans son conteneur */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Appliquer un style à l'icône de la première boîte d'informations */
+#content main .box-info li:nth-child(1) .bx {
+	background:  #CFE8FF; /* Définir un fond de couleur bleu clair */
+	color:#3C91E6; /* Définir la couleur de l'icône sur un ton de bleu plus foncé */
+}
+/* Appliquer un style à l'icône de la deuxième boîte d'informations */
+#content main .box-info li:nth-child(2) .bx {
+	background: #FFF2C6; /* Définir un fond de couleur jaune clair */
+	color: #FFCE26; /* Définir la couleur de l'icône sur un ton de jaune plus foncé */
+}
+/* Appliquer un style à l'icône de la troisième boîte d'informations */
+#content main .box-info li:nth-child(3) .bx {
+	background: #FFE0D3; /* Définir un fond de couleur rose clair */
+	color:  #FD7238; /* Définir la couleur de l'icône sur un ton de rose plus foncé */
+}
+/* Appliquer un style aux titres dans les éléments de la liste ayant la classe 'text' dans la boîte d'informations */
+#content main .box-info li .text h3 {
+	font-size: 24px; /* Définir la taille de police sur 24 pixels */
+	font-weight: 600; /* Définir le poids de la police sur 600 (gras) */
+	color: #342E37; /* Définir la couleur du texte sur un ton de gris foncé */
+}
+/* Appliquer un style aux paragraphes dans les éléments de la liste ayant la classe 'text' dans la boîte d'informations */
+#content main .box-info li .text p {
+	color: #342E37; /* Définir la couleur du texte sur un ton de gris foncé */
+}
+/* Appliquer un style aux images ayant la classe 'logos' */
+.logos{
+	height:45px ; /* Définir la hauteur sur 45 pixels */
+	width:60px  ; /* Définir la largeur sur 60 pixels */
+}
+/* Appliquer un style à la partie 'table-data' */
+#content main .table-data {
+	display: flex; /* Afficher les éléments en ligne */
+	flex-wrap: wrap; /* Passer à la ligne si nécessaire */
+	grid-gap: 24px; /* Ajouter un espace de 24 pixels entre les éléments */
+	margin-top: 24px; /* Ajouter une marge en haut de 24 pixels */
+	width: 100%; /* Définir une largeur de 100% */
+	color: #342E37; /* Définir la couleur du texte sur un ton de gris foncé */
+}
+/* Appliquer un style à la div contenant le tableau */
+#content main .table-data > div {
+	border-radius: 20px; /* Ajouter un border-radius de 20 pixels */
+	background: #F9F9F9;; /* Définir la couleur de fond sur blanc cassé */
+	padding: 24px; /* Ajouter un padding de 24 pixels */
+	overflow-x: auto; /* Ajouter une barre de défilement horizontale si nécessaire */
+}
+/* Appliquer un style à la partie en-tête du tableau */
+#content main .table-data .head {
+	display: flex; /* Afficher les éléments en ligne */
+	align-items: center; /* Centrer les éléments verticalement */
+	grid-gap: 16px; /* Ajouter un espace de 16 pixels entre les éléments */
+	margin-bottom: 24px; /* Ajouter une marge en bas de 24 pixels */
+}
+/* Appliquer un style au titre de la partie en-tête du tableau */
+#content main .table-data .head h3 {
+	margin-right: auto; /* Aligner le titre à gauche */
+	font-size: 24px; /* Définir la taille de police sur 24 pixels */
+	font-weight: 600; /* Définir le poids de la police sur 600 (gras) */
+}
+/* Appliquer un style aux éléments de la partie en-tête du tableau ayant la classe 'bx' */
+#content main .table-data .head .bx {
+	cursor: pointer; /* Définir le curseur de la souris sur 'pointer' (main) */
+}
+/* Appliquer un style à la partie 'order' du tableau */
+#content main .table-data .order {
+	flex-grow: 1; /* Faire grandir l'élément pour remplir l'espace disponible */
+	flex-basis: 500px; /* Définir une largeur de base de 500 pixels */
+}
+/* Appliquer un style au tableau */
+#content main .table-data .order table {
+	width: 100%; /* Définir la largeur du tableau sur 100% */
+	border-collapse: collapse; /* Fusionner les bordures des cellules du tableau */
+}
+/* Appliquer un style aux en-têtes de colonne du tableau */
+#content main .table-data .order table th {
+	padding-bottom: 12px; /* Ajouter un padding de 12 pixels en bas */
+	font-size: 13px; /* Définir la taille de police sur 13 pixels */
+	text-align: left; /* Aligner le texte à gauche */
+	border-bottom: 1px solid #eee; /* Ajouter une bordure en bas de 1 pixel de couleur gris clair */
+}
+/* Appliquer un style aux cellules du tableau */
+#content main .table-data .order table td {
+	padding: 16px 0; /* Ajouter un padding de 16 pixels en haut et en bas, et 0 à gauche et à droite */
+}
+/* Appliquer un style à la première colonne des lignes du tableau */
+#content main .table-data .order table tr td:first-child {
+	display: flex; /* Afficher les éléments en ligne */
+	align-items: center; /* Centrer les éléments verticalement */
+	grid-gap: 12px; /* Ajouter un espace de 12 pixels entre les éléments */
+	padding-left: 6px; /* Ajouter un padding de 6 pixels à gauche */
+}
+/* Définir la taille et l'apparence des images dans les cellules du tableau */
+#content main .table-data .order table td img {
+	width: 36px; /* Largeur de 36 pixels */
+	height: 36px; 
+	border-radius: 50%; /* Ajouter un border-radius de 50% pour créer un cercle */
+	object-fit: cover; /* Éviter la déformation de l'image en la redimensionnant */
+}
+/* Appliquer un style aux lignes du corps du tableau lorsque la souris est dessus */
+#content main .table-data .order table tbody tr:hover {
+	background: #eee; /* Définir la couleur de fond sur gris clair */
+}
+/* Définir la taille de police, le padding, la couleur, le border radius et le font-weight pour les cellules de statut */
+#content main .table-data .order table tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: #F9F9F9;;
+	border-radius: 20px;
+	font-weight: 700;
+}
+/* Définir la couleur de fond pour les cellules avec un statut 'completed' */
+#content main .table-data .order table tr td .status.completed {
+	background:#3C91E6;
+}
+/* Définir la couleur de fond pour les cellules avec un statut 'process' */
+#content main .table-data .order table tr td .status.process {
+	background: #ff52bf;
+}
+/* Définir la couleur de fond pour les cellules avec un statut 'pending' */
+#content main .table-data .order table tr td .status.pending {
+	/* Cette règle de style est utilisée pour définir la couleur d'arrière-plan de l'élément ciblé en utilisant la variable CSS "--blue". */
+	background:var(--blue);
+}
+#content main .table-data .todo {
+	/* Sélectionne les éléments ayant la classe "todo" à l'intérieur des éléments ayant la classe "table-data" à l'intérieur de #content > main et définit la croissance flexible de l'élément à 1 et la base flexible de l'élément à 300 pixels */
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+#content main .table-data .todo .todo-list {
+	/* Sélectionne les éléments ayant la classe "todo-list" à l'intérieur des éléments ayant la classe "todo" à l'intérieur des éléments ayant la classe "table-data" à l'intérieur de #content > main et définit la largeur à 100% */
+	width: 100%;
+}
+#content main .table-data .todo .todo-list li {
+	/* Sélectionne tous les éléments <li> à l'intérieur des éléments ayant la classe "todo-list" à l'intérieur des éléments ayant la classe "todo" à l'intérieur des éléments ayant la classe "table-data" à l'intérieur de #content > main et définit la largeur à 100%, la marge inférieure à 16 pixels, le fond de couleur à #eee, le rayon de la bordure à 10 pixels, le rembourrage de 14 pixels en haut et en bas et de 20 pixels à gauche et à droite, l'affichage en mode flex, la justification de l'espacement et l'alignement central des éléments enfants */
+	width: 100%;
+	margin-bottom: 16px;
+	background:  #eee;
+	border-radius: 10px;
+	padding: 14px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#content main .table-data .todo .todo-list li .bx {
+	/* Sélectionne les éléments ayant la classe "bx" à l'intérieur des éléments <li> ayant la classe "todo-list" à l'intérieur de #content > main > .table-data > .todo et définit le curseur de la souris comme pointer */
+	cursor: pointer;
+}
+#content main .table-data .todo .todo-list li.completed {
+	/* Sélectionne les éléments <li> ayant la classe "completed" à l'intérieur des éléments ayant la classe "todo-list" à l'intérieur de #content > main > .table-data > .todo et définit une bordure gauche de 10 pixels de large de couleur #3C91E6 */
+	border-left: 10px solid#3C91E6;
+}
+#content main .table-data .todo .todo-list li.not-completed {
+	/* Sélectionne les éléments <li> ayant la classe "not-completed" à l'intérieur des éléments ayant la classe "todo-list" à l'intérieur de #content > main > .table-data > .todo et définit une bordure gauche de 10 pixels de large de couleur #ff52bf */
+	border-left: 10px solid #ff52bf;
+}
+#content main .table-data .todo .todo-list li:last-child {
+	/* Sélectionne le dernier élément <li> à l'intérieur des éléments ayant la classe "todo-list" à l'intérieur de #content > main > .table-data > .todo et supprime sa marge inférieure */
+	margin-bottom: 0;
+}
+/* Si l'écran a une largeur maximale de 768 pixels, réduisez la largeur de #sidebar à 200 pixels */
+@media screen and (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+/* Si l'écran a une largeur maximale de 768 pixels, ajustez la largeur de #content */
+	#content {
+		width: calc(100% - 60px); /* la fonction de calcul calc() pour soustraire 60 pixels de la largeur totale de l'écran et positionnez #content en décalant de 200 pixels vers la gauche*/
+		left: 200px;
+	}
+/* Sélectionne tous les éléments ayant la classe "nav-link" dans #content > nav et masque ces éléments */
+	#content nav .nav-link {
+		display: none;
+	}
+}
+/* Styles appliqués uniquement sur les écrans dont la largeur est inférieure ou égale à 576 pixels */
+@media screen and (max-width: 576px) {
+	#content nav form .form-input input {
+		/* Sélectionne les champs de saisie d'un formulaire à l'intérieur de #content > nav > form > .form-input */
+		display: none; /* Masque ces champs de saisie */
+	}
+		/* Sélectionne les boutons d'un formulaire à l'intérieur de #content > nav > form > .form-input */
+	#content nav form .form-input button {
+		width: auto;
+		height: auto;
+		background: transparent; /* Définit un fond transparent */
+		border-radius: none; /* Supprime les coins arrondis */
+		color: #342E37;
+	}
+		/* Sélectionne les champs de saisie d'un formulaire à l'intérieur de #content > nav > form > .form-input lorsqu'il possède la classe "show" */
+	#content nav form.show .form-input input {
+		display: block; /* Affiche ces champs de saisie */
+		width: 100%; /* Étend ces champs de saisie sur toute la largeur de l'écran */
+	}
+			/* Sélectionne les boutons d'un formulaire à l'intérieur de #content > nav > form > .form-input lorsqu'il possède la classe "show" */
+	#content nav form.show .form-input button {
+		width: 36px;
+		height: 100%;
+		border-radius: 0 36px 36px 0;
+		color: #F9F9F9;;
+		background: #DB504A;
+	}
+	/* Sélectionne les éléments suivant immédiatement un formulaire à l'intérieur de #content > nav et possédant la classe "notification" ou "profile" */
+	#content nav form.show ~ .notification,
+	#content nav form.show ~ .profile {
+		display: none;
+	}
+	/* Sélectionne les éléments ayant la classe "box-info" à l'intérieur de #content > main */
+	#content main .box-info {
+		grid-template-columns: 1fr;
+	}
+	/* Sélectionne les éléments ayant la classe "head" à l'intérieur de #content > main > .table-data */
+	#content main .table-data .head {
+		min-width: 420px;
+	}
+	/* Sélectionne les tables à l'intérieur des éléments ayant la classe "order" à l'intérieur de #content > main > .table-data */
+	#content main .table-data .order table {
+		min-width: 420px;
+	}
+	/* Sélectionne les éléments ayant la classe "todo-list" à l'intérieur de #content > main > .table-data > .todo */
+	#content main .table-data .todo .todo-list {
+		min-width: 420px;
+	}
+}

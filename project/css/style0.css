@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+/* Importation de la police de caractères Poppins depuis Google Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Remise à zéro des marges, paddings et boîtes */
+
+body,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+}
+.selection{
+  color: #333;
+  width: 100%;
+  outline: none;
+  border: 2px solid #fafafa;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+/* Définition d'une classe container pour le conteneur principal de la page */
+.container {
+  position: relative; /* Positionnement relatif */
+  width: 100%; /* Largeur de 100% */
+  min-height: 100vh; /* Hauteur minimale de 100% de la hauteur de la fenêtre */
+  padding: 2rem; /* Ajout de padding de 2 rem autour du contenu */
+  background-color: #fafafa; /* Couleur de fond */
+  overflow: hidden; /* Masquage du contenu qui déborde */
+  display: flex; /* Utilisation de Flexbox pour aligner et centrer les éléments */
+  align-items: center; /* Alignement vertical des éléments */
+  justify-content: center; /* Alignement horizontal des éléments */
+}
+
+.form {
+  width: 100%; /* Définition de la largeur du formulaire à 100% */
+  max-width: 820px; /* Définition de la largeur maximale du formulaire à 820 pixels */
+  background-color: #fff; /* Définition de la couleur de fond du formulaire à blanc */
+  border-radius: 10px; /* Définition de la bordure arrondie du formulaire à 10 pixels */
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre portée à la bordure du formulaire */
+  z-index: 1000; /* Définition de l'indice de positionnement z du formulaire pour le placer au-dessus d'autres éléments */
+  overflow: hidden; /* Masquage du contenu qui dépasse de la boîte du formulaire */
+  display: grid; /* Utilisation de la grille CSS pour positionner les éléments enfants */
+  grid-template-columns: repeat(2, 1fr); /* Définition de la disposition en colonnes pour la grille CSS */
+}
+
+.contact-form {
+  background-color: #ff52bf; /* Définition de la couleur de fond du formulaire de contact à rose */
+  position: relative; /* Définition de la position du formulaire à relative pour positionner les éléments enfants */
+}
+
+.circle {
+  border-radius: 50%; /* Définition de la bordure arrondie de 50% pour créer un cercle */
+  background: linear-gradient(135deg, transparent 20%, #ff52bf); /* Définition d'un dégradé linéaire pour la couleur de fond */
+  position: absolute; /* Définition de la position du cercle à absolute pour le positionner par rapport à l'élément parent */
+}
+
+.circle.one {
+  width: 130px;
+  height: 130px;
+  top: 130px;
+  right: -40px;
+}
+
+.circle.two {
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  right: 30px;
+}
+form {
+  padding: 2.3rem 2.2rem;
+  z-index: 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+.input-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  border: 2px solid #fafafa;
+  background: none;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  /* définir l'espacement entre les caractères d'un texte. En ajoutant une valeur de 0.5px, cela signifie que chaque caractère sera séparé par une distance de 0.5 pixels.  */
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+textarea.input {
+  padding: 0.8rem 1.2rem;
+  min-height: 150px;
+  border-radius: 5px;
+  resize: none;  /*signifie que l'utilisateur ne peut pas redimensionner l'élément de formulaire, ce qui est utile pour maintenir une mise en page cohérente et prévenir des erreurs de saisie liées à un changement de taille de l'élément.*/
+  overflow-y: auto; /*signifie que si le contenu de l'élément dépasse sa hauteur fixe, une barre de défilement verticale apparaîtra pour permettre à l'utilisateur de faire défiler le contenu.*/
+}
+
+.input-container label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);  /*déplacer verticalement un élément sélectionné.
+ La propriété "translateY" est une fonction de transformation CSS qui permet de déplacer un élément sur l'axe Y, c'est-à-dire l'axe vertical. Dans ce cas, la valeur "-50%" indique que l'élément sélectionné doit être déplacé de 50% de sa hauteur vers le haut.*/
+  padding: 0 0.4rem;
+  color: #fafafa;
+  font-size: 0.9rem; /* définir la taille de police pour l'élément sélectionné. Dans ce cas, la taille de police est définie à 0,9 rem, ce qui est légèrement plus petit que la taille de police par défaut du navigateur.*/
+  font-weight: 400; /* définir l'épaisseur de la police pour l'élément sélectionné. Dans ce cas, l'épaisseur de la police est définie à 400, ce qui est considéré comme une épaisseur de police normale.*/
+  pointer-events: none; /*désactiver les événements de pointeur pour l'élément sélectionné. Cela signifie que l'élément ne répondra pas aux événements de clic ou de survol de la souris, et que ces événements seront ignorés.*/
+  z-index: 1000; /*permet de contrôler la profondeur d'empilement des éléments dans une page web. La valeur "1000" indique que l'élément sélectionné doit être placé au-dessus de tous les autres éléments ayant une valeur inférieure de z-index.*/
+  transition: 0.5s; /*définir une transition en douceur entre les états de l'élément sélectionné. Dans ce cas, la transition sera effectuée en 0,5 seconde.*/
+}
+/* cible un élément de balisage de libellé (label) spécifique dans une structure de conteneur d'entrée (input) pour les zones de texte multi-lignes (textarea).
+".input-container.textarea" est une classe de conteneur qui englobe l'élément de libellé et l'élément de zone de texte multi-lignes.  */
+.input-container.textarea label {
+  top: 1rem;
+  transform: translateY(0);
+}
+
+.btn {
+  padding: 0.6rem 1.3rem;
+  background-color: #fff;
+  border: 2px solid #fafafa;
+  font-size: 0.95rem;
+  color: #343966;
+  line-height: 1;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 3px;
+  width: 100%;
+  text-decoration: none; /*supprimer la décoration du texte, comme les soulignements et les lignes en pointillé, généralement appliquées aux liens hypertexte*/
+}
+
+.btn:hover {
+  background-color: transparent; /*rendre l'arrière-plan d'un élément transparent, ce qui signifie que tout ce qui se trouve derrière l'élément sera visible à travers lui. Cela peut être utile dans certains cas pour créer des effets de superposition ou pour permettre à des images ou des motifs de fond de se voir à travers l'élément.*/
+  color: #fff;
+}
+
+.input-container span {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  padding: 0 0.4rem;
+  color: transparent;
+  pointer-events: none; /*utilisée pour désactiver l'interaction de la souris avec un élément. Cette propriété peut être utilisée pour empêcher les clics de souris, les survols et autres événements similaires d'interagir avec un élément donné, ce qui peut être utile dans certaines situations de conception.*/
+  z-index: 500;
+}
+/* ".input-container span:before" et ".input-container span:after" sont utilisés pour cibler les pseudo-éléments "before" et "after" d'un élément HTML contenu dans un conteneur ayant une classe "input-container". Ces pseudo-éléments permettent d'ajouter du contenu ou des styles visuels à un élément sans avoir à modifier son contenu HTML.*/
+.input-container span:before,
+.input-container span:after {
+  content: "";
+  position: absolute; /*positionner un élément de manière absolue par rapport à son conteneur positionné le plus proche, ou par rapport au corps de la page si aucun élément conteneur n'est positionné. */
+  width: 10%;
+  opacity: 0; /* utilisée pour rendre un élément complètement transparent, ce qui signifie qu'il ne sera pas visible à l'écran. Cette propriété peut être utilisée pour masquer temporairement un élément ou pour créer des effets de transition en douceur en combinant l'opacité avec une animation ou une transition.*/
+  transition: 0.3s;
+  height: 5px;
+  background-color: #343966;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/*content: "";", lorsqu'elle est utilisée avec un pseudo-élément tel que "before" ou "after", permet d'ajouter du contenu généré par le CSS à un élément sans avoir à modifier son contenu HTML. Cette propriété est souvent utilisée pour ajouter des icônes, des symboles ou des décorations à un élément.*/
+.input-container span:before {
+  left: 50%;
+}
+
+.input-container span:after {
+  right: 50%;
+}
+/*cible les éléments "label" qui se trouvent à l'intérieur d'une classe "input-container" lorsque l'élément parent a le focus.*/
+.input-container.focus label {
+  top: 0;
+  transform: translateY(-50%);
+  left: 25px; /*positionne un élément à 25 pixels de distance depuis le bord gauche de son élément parent.*/
+  font-size: 0.8rem;
+}
+/*le style appliqué aux deux classes*/
+.input-container.focus span:before,
+.input-container.focus span:after {
+  width: 50%;
+  opacity: 1;
+}
+/* style appliqué au formulaire de contact */
+.contact-info {
+  padding: 2.3rem 2.2rem; /*la valeur "2.3rem" est utilisée pour définir l'espacement supérieur et inférieur, tandis que la valeur "2.2rem" est utilisée pour définir l'espacement gauche et droit.*/
+  position: relative; /* définir la position d'un élément par rapport à sa position initiale. Cela signifie que l'élément est positionné par rapport à son emplacement d'origine dans le flux de contenu, mais peut être déplacé en utilisant les propriétés CSS "top", "bottom", "left" et "right"*/
+}
+ h2{
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 50%;
+}
+.contact-info .title {
+  color: #343966;
+}
+table{
+  margin-top: 20px  ;
+  margin-left: 80%;
+  padding:10px; 
+  width:100%
+}
+.text {
+  color: #333;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.information {
+  display: flex;
+  color: #555;
+  margin: 0.7rem 0;
+  align-items: center;
+  font-size: 0.95rem;
+}
+/*style appliqué au icones de réseaux sociaux et les éléments en liaison avec eux*/
+.icon {
+  width: 28px;
+  margin-right: 0.7rem;
+}
+
+.social-media {
+  padding: 2rem 0 0 0;
+}
+/*un sélecteur CSS qui cible tous les éléments "p" à l'intérieur d'une classe "social-media".*/
+.social-media p {
+  color: #333;
+}
+
+.social-icons {
+  display: flex; /* permet de créer des mises en page flexibles et adaptatives.
+ tous les éléments enfants de ce conteneur peuvent être alignés, dimensionnés et répartis de manière flexible sur l'axe horizontal ou vertical. Cette propriété offre une grande souplesse de mise en page, permettant aux éléments d'être ajustés en temps réel en fonction de l'espace disponible, de la taille de l'écran ou du type de périphérique utilisé.
+  */
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #343966, #ff52bf); /*la fonction "linear-gradient()" est utilisée pour définir le dégradé. Les deux couleurs utilisées dans le dégradé sont "#343966" et "#ff52bf". Le premier paramètre de la fonction "linear-gradient()" est l'angle du dégradé, qui est défini ici à 45 degrés. Cela signifie que les couleurs du dégradé changent de manière linéaire en diagonale à travers l'élément.*/
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+/*cible les éléments "a" à l'intérieur d'une classe "social-icons" lorsque l'utilisateur survole ces éléments avec la souris.*/
+.social-icons a:hover {
+  transform: scale(1.05);
+}
+/* style de cercle décoratif */
+.big-circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #343966, #ff52bf);
+  bottom: 50%;
+  right: 50%;
+  transform: translate(-40%, 38%);
+}
+
+/*la création d'un pseudo-élément (::after) qui est contenu dans un élément ayant la classe CSS "big-circle". Le contenu de  */
+.big-circle:after {
+  content: ""; /* le contenu de ce pseudo-élément est vide ("content" a pour valeur une chaîne de caractères vide)*/
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background-color: #fafafa;
+  border-radius: 50%;
+  top: calc(50% - 180px);
+  left: calc(50% - 180px); /*la position horizontale (propriété CSS "left") d'un élément, définie en utilisant une fonction de calcul CSS ("calc()") qui soustrait une valeur fixe ("180px") de la moitié de la largeur de l'élément (exprimée en pourcentage grâce à "50%") */
+}
+
+.square {
+  position: absolute;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(181%, 11%); /* la transformation d'un élément grâce à la propriété CSS "transform" avec la fonction "translate()", qui déplace l'élément horizontalement et verticalement par rapport à sa position originale. Les valeurs "181%" et "11%" correspondent respectivement aux déplacements horizontal et vertical (exprimées en pourcentage de la taille de l'élément lui-même) */
+  opacity: 0.2; /*la définition du niveau de transparence (ou opacité) d'un élément grâce à la propriété CSS "opacity" avec la valeur "0.2", qui rend l'élément partiellement transparent (20% d'opacité) */
+}
+
+
+
+
